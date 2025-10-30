@@ -13,7 +13,8 @@ import { SpeedInsights } from '@vercel/speed-insights/vue'
       <div class="wrapper">
         <nav class="py-6">
           <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" to="/">Event</RouterLink> |
-          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" to="/about">About</RouterLink>
+          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" to="/about">About</RouterLink> |
+          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" to="/students">Students</RouterLink>
         </nav>
       </div>
     </header>
