@@ -9,6 +9,9 @@ import NotFoundView from '../views/NotFoundView.vue'
 import NetworkErrorView from '../views/NetworkErrorView.vue'
 import nProgress from 'nprogress'
 
+import { trackPageView } from '@/services/analytics'
+
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -88,4 +91,9 @@ router.afterEach(() => {
   nProgress.done()
 })
 
+router.afterEach((to) => {
+  nProgress.done()
+  // 手动触发页面浏览跟踪
+  trackPageView()
+})
 export default router
