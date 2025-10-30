@@ -16,11 +16,20 @@
 </template>
 
 <script setup lang="ts">
-import type { Student } from '@/types'
+// 确保接口包含所有必需的属性
+interface Student {
+  id: number;
+  name: string;
+  surname: string;
+  studentId: string;      // 添加这行
+  image: string;          // 添加这行
+  description: string;    // 添加这行
+  gpa: number;
+}
 
 defineProps<{
-  student: Student
-}>()
+  student: Student;
+}>();
 
 const getGpaClass = (gpa: number) => {
   if (gpa >= 3.5) return 'gpa-excellent'

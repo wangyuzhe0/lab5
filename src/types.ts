@@ -8,12 +8,20 @@ export interface Event {
   time: string
   petsAllowed: boolean
   organizer: string
+  name: string;
+  surname: string;
+  studentId: string;
+  image: string;
+  gpa: number;
 }
 
 export interface Student {
   id: number
   name: string
   surname: string
+  studentId: string
+  image: string
+  description: string
   gpa: number
 }
 
