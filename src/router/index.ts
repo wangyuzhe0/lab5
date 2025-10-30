@@ -19,6 +19,11 @@ const router = createRouter({
       props: (route) => ({ page: parseInt(route.query.page?.toString() || '1') })
     },
     {
+      path: '/students',
+      name: 'student-list',  // 确保这个名称存在
+      component: () => import('../views/StudentListView.vue')
+    },
+    {
       path: '/event/:id',
       name: 'event-layout-view',
       component: EventLayoutView,
@@ -66,7 +71,7 @@ const router = createRouter({
       component: NotFoundView
     }
   ],
-  scrollBehavior(_to, _from, savedPosition) {  // 添加下划线表示未使用
+  scrollBehavior(_to, _from, savedPosition) {
     if (savedPosition) {
       return savedPosition
     } else {

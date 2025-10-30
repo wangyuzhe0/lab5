@@ -8,6 +8,12 @@ import './assets/style.css'
 
 import 'nprogress/nprogress.css'
 
+// 添加 Vercel 分析
+import { inject } from '@vercel/analytics'
+
+// 注入分析
+inject()
+
 const app = createApp(App)
 const pinia = createPinia()
 

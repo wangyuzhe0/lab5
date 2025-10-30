@@ -1,22 +1,19 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { useMessageStore } from '@/stores/message'
-import { storeToRefs } from 'pinia'
-
-const store = useMessageStore()
-const { message } = storeToRefs(store)
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 </script>
 
 <template>
   <div class="text-center font-sans text-gray-700 antialias">
+    <SpeedInsights />
+
     <header>
-      <div id="flashMessage" class="animate-fade" v-if="message">
-        <h4>{{ message }}</h4>
-      </div>
+      <h1 class="text-2xl font-bold my-4">Deployed with Vercel</h1>
       <div class="wrapper">
         <nav class="py-6">
-          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'event-list-view' }">Event</RouterLink> |
-          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'about' }">About</RouterLink>
+          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" to="/">Event</RouterLink> |
+          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" to="/about">About</RouterLink> |
+          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" to="/students">Students</RouterLink>
         </nav>
       </div>
     </header>
@@ -26,9 +23,7 @@ const { message } = storeToRefs(store)
 </template>
 
 <style>
-
 h2 {
   font-size: 20px;
 }
-
 </style>

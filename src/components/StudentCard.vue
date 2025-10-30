@@ -31,12 +31,7 @@ defineProps<{
   student: Student;
 }>();
 
-const getGpaClass = (gpa: number) => {
-  if (gpa >= 3.5) return 'gpa-excellent'
-  if (gpa >= 3.0) return 'gpa-good'
-  if (gpa >= 2.5) return 'gpa-average'
-  return 'gpa-poor'
-}
+
 </script>
 
 <style scoped>
