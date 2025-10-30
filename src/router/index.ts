@@ -91,8 +91,9 @@ router.afterEach(() => {
   nProgress.done()
 })
 
-router.afterEach((to) => {
+router.afterEach(() => {
   nProgress.done()
+
   // 手动触发页面浏览跟踪
   trackPageView()
 })
