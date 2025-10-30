@@ -66,7 +66,7 @@ const router = createRouter({
       component: NotFoundView
     }
   ],
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(_to, _from, savedPosition) {  // 添加下划线表示未使用
     if (savedPosition) {
       return savedPosition
     } else {

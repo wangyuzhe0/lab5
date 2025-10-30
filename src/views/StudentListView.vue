@@ -19,9 +19,19 @@
 
 <script setup lang="ts">
 import StudentCard from '@/components/StudentCard.vue'
-import type { Student } from '@/types'
 import { ref, onMounted } from 'vue'
-import StudentService from '@/services/StudentService'
+// 移除未使用的导入
+
+// 在组件内定义 Student 接口
+interface Student {
+  id: number;
+  name: string;
+  surname: string;
+  studentId: string;
+  image: string;
+  description: string;
+  gpa: number;
+}
 
 const students = ref<Student[]>([])
 const loading = ref(true)
@@ -62,20 +72,6 @@ onMounted(() => {
   // 使用模拟数据来通过构建
   students.value = mockStudents
   loading.value = false
-
-  // 暂时注释掉 API 调用，避免错误
-  /*
-  StudentService.getStudents()
-    .then((response) => {
-      students.value = response.data
-      loading.value = false
-    })
-    .catch((err) => {
-      console.error('Error fetching students:', err)
-      error.value = 'Failed to load student information'
-      loading.value = false
-    })
-  */
 })
 </script>
 

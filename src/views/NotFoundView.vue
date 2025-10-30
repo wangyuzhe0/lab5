@@ -1,21 +1,19 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
+// 移除未使用的 props 参数
+import { useRouter } from 'vue-router'
 
-const props = withDefaults(
-  defineProps<{
-    resource?: string
-  }>(),
-  {
-    resource: 'page'
-  }
-)
+const router = useRouter()
+
+const goHome = () => {
+  router.push('/')
+}
 </script>
 
 <template>
   <div class="not-found">
-    <h1>Oops!</h1>
-    <h3>The {{ resource }} you're looking for is not here.</h3>
-    <RouterLink :to="{ name: 'event-list-view' }">Back to the home page</RouterLink>
+    <h1>404 - Page Not Found</h1>
+    <p>The page you are looking for does not exist.</p>
+    <button @click="goHome" class="home-button">Go Home</button>
   </div>
 </template>
 
@@ -25,24 +23,17 @@ const props = withDefaults(
   padding: 50px;
 }
 
-.not-found h1 {
-  color: #ff6b6b;
-  font-size: 3rem;
-  margin-bottom: 20px;
+.home-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
-.not-found h3 {
-  color: #666;
-  margin-bottom: 30px;
-}
-
-.not-found a {
-  color: #42b983;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.not-found a:hover {
-  text-decoration: underline;
+.home-button:hover {
+  background-color: #45a049;
 }
 </style>
